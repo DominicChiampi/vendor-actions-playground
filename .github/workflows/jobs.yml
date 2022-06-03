@@ -2,10 +2,6 @@ name: "jobs"
 
 on: push
 
-defaults:
-    run:
-        working-directory: my-app
-
 env:
     NODE_VERSION: 16.x
 
@@ -23,14 +19,17 @@ jobs:
                   node-version: ${{ env.NODE_VERSION }}
 
             - name: Install dependencies
-              run: npm install
+              run: cd my-app; npm install
+            
+            - name: Get pwd
+              run: pwd
 
             - name: Get changed files
               id: changed-js-files
               uses: ./.github/actions/changed-files
               with:
-                working-directory: my-app
                 files: |
                     **/*.js
+            
             - name: Check changed files with ESLint
               run: npm run lint ${{ steps.changed-js-files.outputs.all_changed_files }}
