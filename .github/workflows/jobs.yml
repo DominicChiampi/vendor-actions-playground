@@ -29,7 +29,8 @@ jobs:
               id: changed-js-files
               uses: ./.github/actions/changed-files
               with:
-                  files: |
-                      **/*.js
+                working-directory: my-app
+                files: |
+                    **/*.js
             - name: Check changed files with ESLint
               run: npm run lint ${{ steps.changed-js-files.outputs.all_changed_files }}
