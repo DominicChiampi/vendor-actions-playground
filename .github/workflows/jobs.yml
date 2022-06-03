@@ -36,6 +36,6 @@ jobs:
               run: |
                 TO_LINT=""
                 for file in ${{ steps.changed-js-files.outputs.all_changed_files }}; do
-                    TO_LINT+=$(echo ${file#*/})
+                    TO_LINT+=$(echo "${file#*/} ")
                 done
                 npm run lint $TO_LINT
