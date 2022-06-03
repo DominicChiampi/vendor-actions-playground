@@ -2,6 +2,10 @@ name: "jobs"
 
 on: push
 
+defaults:
+    run:
+        working-directory: my-app
+
 env:
     NODE_VERSION: 16.x
 
@@ -19,7 +23,7 @@ jobs:
                   node-version: ${{ env.NODE_VERSION }}
 
             - name: Install dependencies
-              run: cd my-app; npm install
+              run: npm install
             
             - name: Get changed files
               id: changed-js-files
