@@ -2,6 +2,10 @@ name: "jobs"
 
 on: push
 
+defaults:
+    run:
+        working-directory: my-app
+
 env:
     NODE_VERSION: 16.x
 
