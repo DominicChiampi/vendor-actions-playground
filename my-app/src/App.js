@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
-console.log("this is another change");
+console.log("this is anothe change");
 function App() {
   return (
     <div className="App">
