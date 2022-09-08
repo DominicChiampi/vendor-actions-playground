@@ -1,0 +1,13 @@
+name: "jobs"
+on: push
+defaults:
+    run:
+        working-directory: my-app
+        
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        name: testing
+        steps:
+            - name: TEst step
+              run: echo "test"
